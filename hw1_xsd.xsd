@@ -1,0 +1,49 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="records">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="row" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="name"/>
+              <xs:element type="xs:string" name="surname"/>
+              <xs:element type="gen" name="gender"/>
+              <xs:element type="mail" name="email"/>
+              <xs:element type="xs:string" name="phone_number"/>
+              <xs:element type="xs:string" name="address"/>
+              <xs:element type="education" name="level_of_education"/>
+              <xs:element type="xs:short" name="income_level"/>
+              <xs:element type="xs:int" name="expenditure"/>
+              <xs:element type="currency" name="currency_unit"/>
+              <xs:element type="xs:string" name="currentMood"/>
+              <xs:element type="xs:float" name="height"/>
+              <xs:element type="xs:byte" name="weight"/>
+            </xs:sequence>
+            <xs:attribute type="xs:byte" name="id" use="optional"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name = "gen">
+    <xs:restriction base="xs:string">
+      <xs:pattern value = "M|F"/>
+        </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name = "mail">
+    <xs:restriction base="xs:string">
+      <xs:pattern value = "[^@]+@[^\.]+\..+"/>
+        </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name = "education">
+    <xs:restriction base="xs:string">
+      <xs:pattern value = "PS|HS|BSc|MSc|PhD"/>
+        </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name = "currency">
+    <xs:restriction base="xs:string">
+      <xs:pattern value = "€|₺|$"/>
+        </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+
